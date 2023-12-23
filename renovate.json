@@ -14,5 +14,19 @@
   "minimumReleaseAge": "3 days",
   "rollbackPrs": true,
   "automergeStrategy": "squash",
-  "reviewers": ["@lapotor", "@whyauthentic"]
+  "reviewers": ["@lapotor", "@whyauthentic"],
+  "packageRules": [
+    {
+      "description": "Require approval for TypeScript Minor Updates",
+      "matchPackageNames": "typescript",
+      "matchUpdateTypes": "minor",
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Require approval for zone.js Minor Updates",
+      "matchPackageNames": "zone.js",
+      "matchUpdateTypes": "minor",
+      "dependencyDashboardApproval": true
+    }
+  ]
 }
