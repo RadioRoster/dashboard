@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -9,21 +10,23 @@ describe('AppComponent', () => {
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    const FIXTURE = TestBed.createComponent(AppComponent);
+    const APP = FIXTURE.componentInstance;
+    expect(APP).toBeTruthy();
   });
 
   it(`should have the 'dashboard' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('dashboard');
+    const FIXTURE = TestBed.createComponent(AppComponent);
+    const APP = FIXTURE.componentInstance;
+    expect(APP.title).toEqual('dashboard');
   });
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, dashboard');
+    const FIXTURE = TestBed.createComponent(AppComponent);
+    FIXTURE.detectChanges();
+    const COMPILED = FIXTURE.nativeElement as HTMLElement;
+    expect(COMPILED.querySelector('h1')?.textContent).toContain(
+      'Hello, dashboard'
+    );
   });
 });
