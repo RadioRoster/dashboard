@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:js-app",
+    "npm:unpublishSafe",
+    ":approveMajorUpdates",
+    ":automergeMinor",
+    ":semanticCommits",
+    ":separateMultipleMajorReleases",
+    ":timezone(Europe/Berlin)",
+    ":rebaseStalePrs"
+  ],
+  "baseBranches": ["main"],
+  "minimumReleaseAge": "3 days",
+  "rollbackPrs": true,
+  "automergeStrategy": "squash",
+  "reviewers": ["@lapotor", "@whyauthentic"],
+  "packageRules": [
+    {
+      "description": "Require approval for TypeScript Minor Updates",
+      "matchPackageNames": "typescript",
+      "matchUpdateTypes": "minor",
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Require approval for zone.js Minor Updates",
+      "matchPackageNames": "zone.js",
+      "matchUpdateTypes": "minor",
+      "dependencyDashboardApproval": true
+    }
+  ]
+}

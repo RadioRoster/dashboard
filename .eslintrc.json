@@ -1,0 +1,150 @@
+{
+  "root": true,
+  "ignorePatterns": ["projects/**/*"],
+  "overrides": [
+    {
+      "plugins": ["jsdoc"],
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.(app|spec).json"]
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/stylistic",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:import/recommended",
+        "plugin:import/typescript",
+        "plugin:jsdoc/recommended-typescript"
+      ],
+      "settings": {
+        "import/resolver": {
+          "typescript": true,
+          "node": true
+        }
+      },
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/component-class-suffix": [
+          "error",
+          {
+            "suffixes": ["Component", "Dialog"]
+          }
+        ],
+        "@angular-eslint/no-async-lifecycle-method": "error",
+        "@angular-eslint/no-conflicting-lifecycle": "error",
+        "@angular-eslint/no-lifecycle-call": "error",
+        "@angular-eslint/relative-url-prefix": "error",
+        "@angular-eslint/sort-lifecycle-methods": "error",
+        "jsdoc/require-jsdoc": [
+          "warn",
+          {
+            "checkConstructors": false,
+            "require": {
+              "FunctionDeclaration": true,
+              "MethodDefinition": true
+            }
+          }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": [
+          "warn",
+          {
+            "accessibility": "explicit",
+            "ignoredMethodNames": [
+              "ngOnChanges",
+              "ngOnInit",
+              "ngDoCheck",
+              "ngAfterContentInit",
+              "ngAfterContentChecked",
+              "ngAfterViewInit",
+              "ngAfterViewChecked",
+              "ngOnDestroy"
+            ],
+            "overrides": {
+              "constructors": "no-public"
+            }
+          }
+        ],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          { "selector": "variableLike", "format": ["camelCase"] },
+          {
+            "selector": "variable",
+            "modifiers": ["const"],
+            "format": ["UPPER_CASE"]
+          },
+          {
+            "selector": "variable",
+            "types": ["boolean"],
+            "modifiers": ["const"],
+            "format": ["UPPER_CASE"],
+            "prefix": ["IS_", "SHOULD_", "HAS_", "CAN_", "DID_", "WILL_"]
+          },
+          {
+            "selector": "variable",
+            "types": ["boolean"],
+            "format": ["PascalCase"],
+            "prefix": ["is", "should", "has", "can", "did", "will"]
+          },
+          {
+            "selector": "memberLike",
+            "modifiers": ["private"],
+            "format": ["camelCase"],
+            "leadingUnderscore": "require"
+          },
+          {
+            "selector": "typeLike",
+            "format": ["PascalCase"]
+          }
+        ],
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              "parent",
+              "sibling",
+              "index"
+            ],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "sort-imports": [
+          "error",
+          {
+            "allowSeparatedGroups": true,
+            "ignoreDeclarationSort": true
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:@angular-eslint/template/accessibility"
+      ],
+      "rules": {}
+    }
+  ]
+}
